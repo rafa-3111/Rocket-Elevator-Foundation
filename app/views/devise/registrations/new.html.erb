@@ -1,0 +1,45 @@
+<section class="pt-10 pb-10">
+  <div class="container">
+    <div class="text-center">
+      <div class="m-20">
+        <h1 class="arrow-top fw-600">Sign Up</h1>
+      </div>
+    </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <form class="form-signin d-flex justify-content-center flex-wrap">
+        <div class="form-div field mx-auto mb-25" style='width: 60%;'>
+          <%= f.email_field :email, autocomplete: "off", class: 'no-box', value: '' %>
+
+          <%= f.label :email, class: 'label-name no-box' do %>
+            <span class="content-name no-box">Email</span>
+          <% end %>
+        </div>
+        <% if @minimum_password_length %>
+          <p class="text-center mb-0 mt-40 text-blue"><%= @minimum_password_length %> characters minimum</p>
+        <% end %>
+        <div class="form-div field mx-auto mb-25" style='width: 60%;'>
+          <%= f.password_field :password, autocomplete: "off", class: 'no-box', value: '' %>
+
+          <%= f.label :password, class: 'label-name no-box' do %>
+            <span class="content-name no-box">Password</span>
+          <% end %>
+        </div>
+        <div class="form-div field mx-auto mb-25" style='width: 60%;'>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'no-box', value: '' %>
+
+          <%= f.label :password_confirmation, class: 'label-name no-box' do %>
+            <span class="content-name no-box">Password Confirmation</span>
+          <% end %>
+        </div>
+        <div class="actions d-flex justify-content-center">
+          <%= f.submit "Sign Up", class: "btn btn-red btn-block w-20p" %> <br />
+        </div>
+      </form>
+      <div class="text-center m-20">
+        <span>Already signed up? </span>
+        <%= render "devise/shared/links" %>
+      </div>
+    <% end %>
+  </div>
+</section>

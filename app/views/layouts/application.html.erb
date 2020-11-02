@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rocket Elevators</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>
+      var plugin_path;
+    </script>
+  </head>
+  <body class="enable-animation">
+    <div id="nonFooter">
+      <%= render 'partials/alerts'%>
+      <%= render 'partials/header' %>
+      <%= yield %>
+    </div>
+    <%= render 'partials/footer' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </body>
+</html>

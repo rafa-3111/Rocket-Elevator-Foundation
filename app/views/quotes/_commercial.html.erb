@@ -1,0 +1,26 @@
+         <%= simple_form_for(@quote) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="container">
+    <div class="form-inputs row text-center">
+      <%= f.input :floors, :onkeydown => 'return event.keyCode !== 69 && event.keyCode !== 189', required: 'true' %>
+      <%= f.input :basements, :onkeydown => 'return event.keyCode !== 69 && event.keyCode !== 189', required: 'true' %>
+      <%= f.input :businesses, :onkeydown => 'return event.keyCode !== 69 && event.keyCode !== 189', required: 'true' %>
+      <%= f.input :elevator_shafts, input_html: {id: "cages"}, :onkeydown => 'return event.keyCode !== 69 && event.keyCode !== 189', required: 'true' %>
+      <%= f.input :parking_spaces, :onkeydown => 'return event.keyCode !== 69 && event.keyCode !== 189', required: 'true' %>
+    </div>
+    <div class="form-inputs row">
+      <%= f.input :product_line, as: :radio_buttons, collection: [['Standard'], ['Premium'], ['Excelium']], label_method: :first, value_method: :first, required: 'true'  %>
+    </div>
+    <%= f.hidden_field :total_price, class: "total_price" %>
+    <%= f.hidden_field :install_fee, class: "install_fee" %>
+    <%= f.hidden_field :elevator_number, class: "elevator_number" %>
+    <%= f.hidden_field :building_type, class: "building_type" %>
+    <div class="form-actions text-center">
+      <%= f.button :submit, class: "btn btn-lg btn-red" %>
+      <input type="reset" class="btn btn-lg btn-default">
+      <hr />
+      <%= render 'quoteinfo' %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,4 @@
+<%= 
+line_chart FactQuote.group_by_year(:quote_created_at).group_by_month(:quote_created_at).count, 
+title: "Quotes Per Year", label: "Unique quotes", ytitle: "Quotes", height: "400px" 
+%>

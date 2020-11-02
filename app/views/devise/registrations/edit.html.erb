@@ -1,0 +1,63 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="col col-12">
+        <div class="text-center">
+          <h2 class="text-blue fw-300">My Account</h2>
+        </div>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-signin" }) do |f| %>
+          <%= f.error_notification %>
+          <div class="field m-5">
+            <div class="control">
+              <%= f.input :first_name, autofocus: true, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" }, :label => "First name" %>
+            </div>
+          </div>
+          <div class="field m-5">
+            <div class="control">
+              <%= f.input :last_name,  input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } , :label => "Last name"%>
+            </div>
+          </div>
+          <div class="field m-5">
+            <div class="control">
+              <%= f.input :email, required: true, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
+            </div>
+          </div>
+          <div class="field m-5">
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+            <% end %>
+          </div>
+          <div class="field m-5">
+            <div class="control">
+              <%= f.input :password, autocomplete: "off", hint: "Leave it blank if you don't want to change it", required: false, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
+            </div>
+          </div>
+          <div class="field m-5">
+            <div class="control">
+              <%= f.input :password_confirmation, required: false, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
+            </div>
+          </div>
+          <div class="field m-5">
+            <div class="control">
+              <%= f.input :current_password, hint: "We need your current password to confirm your changes", required: true, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
+            </div>
+          </div>
+          <div class="text-center mt-20">
+            <div class="col-12">
+              <%= f.button :submit, "Update", class:"btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+        <% if current_user.is_user? %>
+          <div class="text-center mt-60">
+            <h3 class="title is-5">Danger Zone</h3>
+            <p>If you are in need of any support, please contact us and we will be happy to help. </p>
+            <p>You can cancel your account by clicking the link below. </p>
+            <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

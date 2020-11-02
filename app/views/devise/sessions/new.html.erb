@@ -1,0 +1,41 @@
+<section class="pt-10 pb-10" style="height: 100%;">
+  <div class="container">
+    <div class="text-center">
+      <div class="m-20">
+        <h1 class="arrow-top fs-50 fw-600">Log In</h1>
+      </div>
+    </div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <form class="form-signin d-flex justify-content-center flex-wrap">
+        <div class="form-div field mx-auto mb-25" style='width: 60%;'>
+          <%= f.email_field :email, autocomplete: "off", class: 'no-box', value: '' %>
+
+          <%= f.label :email, class: 'label-name no-box' do %>
+            <span class="content-name no-box">Email</span>
+          <% end %>
+        </div>
+        <div class="form-div field mx-auto mb-25" style='width: 60%;'>
+          <%= f.password_field :password, autocomplete: "off", class: 'no-box', value: '' %>
+
+          <%= f.label :password, class: 'label-name no-box' do %>
+            <span class="content-name no-box">Password</span>
+          <% end %>
+        </div>
+        <% if devise_mapping.rememberable? %>
+          <div class="d-flex justify-content-center mt-70">
+            <label for="remember-me" class="fs-15 unselectable">
+              <%= f.check_box :remember_me, id: "remember-me" %>
+              <span>Remember me</span>
+            </label>
+          </div>
+        <% end %>
+        <div class="actions d-flex justify-content-center">
+          <%= f.submit "Log in", class: "btn btn-red btn-block w-20p" %> <br />
+        </div>
+      </form>
+    <% end %>
+    <div class="mt-40">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</section>

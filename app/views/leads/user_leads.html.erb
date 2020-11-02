@@ -1,0 +1,38 @@
+<section class="pt-30">
+  <div class="container" style="width: 90% !important;">
+    <div class="text-center">
+      <h1 class="fw-600 text-blue">My Requests</h1>
+    </div>
+    <div>
+      <p id="notice"><%= notice %></p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Business Name</th>
+            <th scope="col">Project Name</th>
+            <th scope="col">Department</th>
+            <th scope="col">Project Description</th>
+            <th scope="col">Message</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @leads.each do |lead| %>
+            <tr>
+              <td><%= lead.full_name %></td>
+              <td><%= lead.email %></td>
+              <td><%= lead.phone %></td>
+              <td><%= lead.business_name %></td>
+              <td><%= lead.project_name %></td>
+              <td><%= lead.department %></td>
+              <td><%= lead.project_description %></td>
+              <td><%= lead.message %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,4 @@
+<%= 
+line_chart FactContact.group_by_year(:creation_date).group_by_month(:creation_date).count, 
+title: "Contacts Per Year", label: "Unique Contacts", ytitle: "Contacts", height: "400px" 
+%>
