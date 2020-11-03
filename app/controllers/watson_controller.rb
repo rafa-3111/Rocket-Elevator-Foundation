@@ -1,7 +1,7 @@
 class WatsonController < ApplicationController
     require "ibm_watson/authenticators"
-require "ibm_watson/text_to_speech_v1"
-include IBMWatson
+    require "ibm_watson/text_to_speech_v1"
+    include IBMWatson
 
     def greeting
         authenticator = Authenticators::IamAuthenticator.new(
