@@ -1,4 +1,13 @@
 RailsAdmin.config do |config|
+
+   # Static link in Rails Admin left navigation bar
+   config.navigation_static_label = "SERVICES"
+
+   config.navigation_static_links = {
+     
+     'Geolocation' => 'geolocation/index'
+     
+   }
   config.authorize_with :cancancan
 
   config.model 'User' do
