@@ -1,0 +1,23 @@
+
+
+  <div class="custom-div no-box pt-70 text-center">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'no-box' }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <h1 class="no-box fs-45 pb-40">Forgot your password ?</h1>
+
+      <div class="form-div field no-box mb-25">
+        <%= f.email_field :email, autocomplete: "off", class: 'no-box', value: '' %>
+
+        <%= f.label :email, class: 'label-name no-box' do %>
+          <span class="content-name no-box">Email</span>
+        <% end %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Reset Password", class: 'btn btn-lg mt-25 btn-red' %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= render "devise/shared/links" %>

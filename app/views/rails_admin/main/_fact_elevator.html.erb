@@ -1,0 +1,5 @@
+<%= 
+column_chart FactElevator.group(:customer_id).count(:customer_id).sort_by {|k,v| v}.reverse[0..20], 
+discrete: true, label: "Elevators", title: "Elevators Per Customer - Top 20", xtitle: "Customer ID", 
+ytitle: "Elevators", colors: ['#2cd15d'], height: "400px" 
+%>

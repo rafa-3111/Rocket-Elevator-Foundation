@@ -1,0 +1,60 @@
+<section id="contact">
+  <div class="container">
+    <header class="text-center mb-60">
+      <h2>Contact Us</h2>
+      <hr />
+    </header>
+    <div class="row">
+      <!-- INFO -->
+      <div class="col-lg-3 text-center">
+        <div class="row">
+          <div class="col-lg-12 col-md-6">
+            <h2>Visit Us</h2>
+            <p>
+              Visit us on <a target="_blank" href="https://codeboxx.biz/">OUR WEBSITE</a>!!!
+            </p>
+            <hr />
+            <p>
+              <span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 4468 Wellington Street, Montreal, QC, Canada</span>
+              <span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a class="addhover" href="tel:581-701-0303">581-701-0303</a></span>
+              <span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a class="addhover" href="mailto:info@codeboxx.biz">info@codeboxx.biz</a></span>
+            </p>
+          </div>
+          <div class="col-lg-12 col-md-6">
+            <iframe id="map-spacing" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2729.042993784821!2d-71.2818834840848!3d46.842843548415686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb897d0e1cafe3f%3A0x9863b2d992c71670!2sCodeBoxx!5e0!3m2!1sfr!2sca!4v1599866854501!5m2!1sfr!2sca" width="100%" height="320" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          </div>
+        </div>
+      </div>
+      <!-- /INFO -->
+      <!-- FORM -->
+      <!-- ERROR VERIF TO BE ADDED -->
+      <div class="col-lg-9 text-center">
+        <%= simple_form_for Lead.new, validates: true do |form_lead| %>
+          <%= form_lead.error_notification %>
+          <div>
+            <div class="form-input">
+              <div class="form-inputs row text-center">
+                <%= form_lead.input :full_name %>
+                <%= form_lead.input :email, as: :email %>
+                <%= form_lead.input :phone %>
+                <%= form_lead.input :business_name %>
+                <%= form_lead.input :project_name %>
+                <%= form_lead.input :department, as: :select, collection: ["Elevator Consultant", "Building Manager", "Architect"] %>
+                <%= form_lead.input :project_description, as: :text %>
+                <%= form_lead.input :message, as: :text %>
+                <div class="form-group col-md-10">
+                  <%= form_lead.file_field :attachment, class: "form-control" %>
+                </div>
+                <div class="form-group send-info">
+                  <%= form_lead.button :submit, 'Send Info', class: 'btn btn-red' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <!-- /FORM -->
+    </div>
+  </div>
+</section>
+<!-- /CONTACT -->

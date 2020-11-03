@@ -1,0 +1,75 @@
+.no-box {
+	direction: unset !important;
+}
+
+.custom-div {
+	display: flex !important;
+	height: 100%;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	font-family: sans-serif;
+}
+
+.form-div {
+	width: 100%;
+	position: relative !important;
+	height: 60px !important;
+	overflow: hidden;
+}
+
+.form-div input {
+	width: 100%;
+	height: 100%;
+	color: rgb(19, 19, 19);
+	padding-top: 17px;
+	border: none;
+	background-color: 0 !important;
+}
+
+input:valid {
+	background-color: none !important;
+}
+
+.form-div label {
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	width:  100%;
+	height: 100%;
+	pointer-events: none;
+	border-bottom: 1px solid black;
+	background-color: transparent !important;
+}
+
+.form-div label::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -1px;
+	width: 100%;
+	height: 100%;
+	border-bottom: 2px solid #5fa8d3;
+	transform: translateX(-101%);
+	transition: transform 0.3s ease;
+	background-color: transparent !important;
+}
+
+.content-name {
+	position: absolute;
+	bottom: 25px;
+	left: 0;
+	transition: transform 1s ease;
+}
+
+.form-div input:focus + .label-name::after {
+	transform: translateX(0%);
+}
+
+.danger-card {
+	margin: auto;
+	width: fit-content !important;
+	border: #961d31 3px solid !important;
+	border-radius: 15px;
+	padding: 15px;
+}

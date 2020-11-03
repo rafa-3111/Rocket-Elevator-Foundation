@@ -1,0 +1,51 @@
+<section>
+  <div class="container">
+    <div class="text-center">
+      <h1 class="fw-300 text-blue">My Quotes</h1>
+    </div>
+    <div class="container">
+      <p id="notice"><%= notice %></p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <%# <th>Apartments</th>
+            <th>Floors</th>
+            <th>Basements</th>
+            <th>Businesses</th>
+            <th>Elevator shafts</th>
+            <th>Parking spaces</th>
+            <th>Occupants</th>%>
+            <th scope="col">Building Type</th>
+            <th scope="col">Required Elevators</th>
+            <th scope="col">Product Line</th>
+            <th scope="col">Installation Fees</th>
+            <th scope="col">Total Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @quotes.each do |quote| %>
+            <tr>
+              <td><%= quote.building_type %></td>
+              <td><%= quote.elevator_number %></td>
+              <td><%= quote.product_line %></td>
+              <td><%= number_to_currency(quote.install_fee, :unit => "$") %></td>
+              <td><%= number_to_currency(quote.total_price, :unit => "$") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+      <div class="text-center">
+        <%= button_to "New Quote", { :action => "new" }, :method => :get, :class => "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <a href="/#contact">
+    <span class="btn btn-xlg btn-red fs-20 fullwidth m-0 rad-0 p-40">
+      <span class="font-lato fs-30">
+        Ready to move forward? 
+        <strong>Contact Us &raquo;</strong>
+      </span>
+    </span>
+  </a>
+</section>
