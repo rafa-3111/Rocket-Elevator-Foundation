@@ -14,7 +14,7 @@
  *= require_self
  *= require toastr
  */
-
+ @import 'ibm_watson';
  @import 'custom-input';
  @import 'bootstrap.min.css';
  @import 'extralayers';

@@ -63,6 +63,8 @@ gem 'carrierwave', '~> 2.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0'
+gem 'dropbox_api'
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -106,7 +108,18 @@ group :production do
   # you probably don't want this for :test or :development
 end
 
+
 gem "figaro"
+
+gem 'twilio-ruby'
+
 gem 'gmaps4rails'
 gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
 gem "geocoder"
+
+
+gem 'slack-ruby-client'
+
+gem "slack-notifier"
+
+
