@@ -11,4 +11,27 @@ class WatsonController < ApplicationController
         authenticator: authenticator
         )
         text_to_speech.service_url = "watson_api_url"
+        elevators = Elevator.count
+        buildings = Building.count
+        customers = Customer.count
+        not_active_elevators = Elevator.where.not(elevator_status:'active').count
+        quotes = Quote.count
+        leads = Lead.count
+        batteries = Battery.count
+        cities = Address.count(city)
+
+        File.new("app/assets/audios/greetings.wav", "wb") do |audio_file|
+            response = text_to_speech.synthesize(
+                text: " Greetings,
+                        There are currently #(elevators.to_s) elevators deployed in the #(buildings.to_s) of your #(customers.to_s). 
+                        Currently, #(not_active_elevators.to_s) elevators are not in Running Status and are being serviced. 
+                        You currently have #(quotes.to_s) quotes awaiting processing. 
+                        You currently have #(leads.to_s) leads in your contact requests.
+                        #(batteries.to_s) Batteries are deployed across #(cities.to_s) cities. ",
+                accept: "audio/wav",
+                voice: "en-US_AllisonV3Voice"
+            ).result
+            audio_file << response
+        end
     end
+end
