@@ -40,19 +40,29 @@
     handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   markers = handler.addMarkers([
-    {
-      
-      "lat": 48.864716,
-      "lng": 2.349014,
-      "picture": {
-        "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
-        "width":  32,
-        "height": 32
-      },
-      "infowindow": "hello!"
-    }
+      {lat: 28.0, lng: 76.2},
+            {lat: 28.38, lng: 77.82},
+            {lat: 28.98, lng: 76.19},
+            {
+                lat: 28.63, lng: 77.13, infowindow: 'Your location',
+                picture: {
+                    url: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                    width: 36,
+                    height: 36
+                }
+            },
+            {lat: 29.0, lng: 78.17},
+            {lat: 28.44, lng: 76.48}
   ]);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
 });
 </script>
+
+
+  var markers = handler.addMarkers([
+          
+        ]);
+        handler.bounds.extendWith(markers);
+        handler.map.centerOn({lat: 28.63, lng: 77.13})
+    });
