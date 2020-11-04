@@ -59,17 +59,14 @@ class GeolocationController < ApplicationController
 end
 
 def index
-@hashResults = executeQuery() #execute la requete qui est plus haute
-@hashResults.inspect
-@hash = Gmaps4rails.build_markers(@hashResults) do |res, marker|
-
-
-          marker.lat res[3]
-          marker.lng res[4]
-          marker.infowindow "<b>Administrator name:</b> "+ res[0]+"</br>"
-          +"<b>Technician name: </b>"+res[1]
-          # +"</br>"+"<b>Address: </b>"+res[2]+"</br>"+"<b>Latitude: </b>"+ res[3]+"</br>"+"<b>Longitude: </b>"+ res[4]+"</br>"+"<b>Number of batteries: </b>"+ res[5].to_s+"</br>"+"<b>Number of columns: </b>"+ res[6].to_s+"</br>"+"<b>Number of elevators: </b>"+ res[7].to_s+"</br>"
-
-      end 
+  @hashResults = executeQuery()
+  @hashResults.inspect
+  @hash = Gmaps4rails.build_markers(@hashResults) do |res, marker|
+        
+            marker.lat res[3]
+            marker.lng res[4]          
+            marker.infowindow "<h5><font color='#3498db'>" + res[0] +"</font></h5> Technician name: "+ res[1]  +"</br>Address: "+ res[2] +"</br>Number of batteries: "+ res[5].to_s + "</br>Number of columns: " + res[6].to_s + "</br> Number of elevators: " + res[7].to_s        
+  
+        end 
   end
 end
