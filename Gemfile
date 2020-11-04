@@ -110,4 +110,3 @@ gem "figaro"
 
 gem 'twilio-ruby'
 
-gem "figaro"
