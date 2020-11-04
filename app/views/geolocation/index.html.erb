@@ -15,8 +15,8 @@
   <div class="container">
     <div>
       <header class="text-center">
-        <h1 class="header">A more personalized experience</h1>
-        <p>We put you and your users at the center of everything we do.</p>
+        <h1 class="header">Customers geolocation</h1>
+        <p>Click on the marker to display infobox.</p>
       </header>
       <hr />
       <div class="row">
@@ -35,34 +35,78 @@
   </div>
 </section>
 
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+<script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 
-<script> 
-    handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers([
-      {lat: 28.0, lng: 76.2},
-            {lat: 28.38, lng: 77.82},
-            {lat: 28.98, lng: 76.19},
-            {
-                lat: 28.63, lng: 77.13, infowindow: 'Your location',
-                picture: {
-                    url: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-                    width: 36,
-                    height: 36
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+         mapInitialisation();
+    })
+
+    function mapOptions(){
+        return {
+            mapTypeControl: true,
+            mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                position: google.maps.ControlPosition.TOP_CENTER
+            },
+            zoomControl: true,
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.LEFT_CENTER
+            },
+            scaleControl: true,
+            streetViewControl: true,
+            streetViewControlOptions: {
+                position: google.maps.ControlPosition.LEFT_TOP
+            },
+            fullscreenControl: true
+        }
+    }
+
+    function mapInitialisation(){
+
+            handler = Gmaps.build('Google');
+            handler.buildMap({
+                provider: {
+                disableDefaultUI: true
+                },
+                internal: {
+                id: 'map'
                 }
             },
-            {lat: 29.0, lng: 78.17},
-            {lat: 28.44, lng: 76.48}
-  ]);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
+            function(){
+                
+                // markers = handler.addMarkers([
+                // {
+                //     "lat": 46.0632019,
+                //     "lng": -70.9386751,
+                    
+                //     "picture": {
+                //     "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+                //     "width":  32,
+                //     "height": 32
+                //     },
+                //     "infowindow": "hello!"
+                // }
+                // ]);
+                var mapCenter = {
+                    "lat": 43.15179,
+                    "lng": -70.932065,
+                }
+                
+                handler.fitMapToBounds();
+                handler.getMap().setOptions(mapOptions())
+                handler.getMap().setZoom(6)
+                handler.getMap().setCenter(mapCenter)
+                markers = handler.addMarkers(<%=raw @hash.to_json %>);
+                handler.bounds.extendWith(markers);
+            }
+        );
+
+            
+
+    }
+    
 </script>
-
-
-  var markers = handler.addMarkers([
-          
-        ]);
-        handler.bounds.extendWith(markers);
-        handler.map.centerOn({lat: 28.63, lng: 77.13})
-    });
