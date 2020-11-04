@@ -2,8 +2,8 @@ class GeolocationController < ApplicationController
    before_action :authenticate_user!
 
   def sqlQuery()
-    sql = "select b.administrator_full_name as nomadmin, 
-                b.technical_contact_full_name as nomtech, 
+    sql = "select b.administrator_full_name as admin, 
+                b.technical_contact_full_name as tech, 
                 CONCAT(ad.number_and_street,' ', ad.city ,' ',ad.postal_code,' ', ad.country )  as address,
                  ad.latitude latitude,
                 ad.longitude longitude,
@@ -32,43 +32,34 @@ class GeolocationController < ApplicationController
             ) as batitemcount
             GROUP by batitemcount.building_id
         ) as bitem on bitem.building_id = b.id"
-    return sql
-
-    
+    return sql    
   end 
 
 
-  def executeQuery()
-      
-    results = ActiveRecord::Base.connection.execute(sqlQuery())
-  
-  if results.present? 
-      rep =[]
-
-    return results.as_json
-  else
-    return nil
-
-    if results.present? 
-        rep =[]
-      return results.as_json
+  def executeQuery()      
+    results = ActiveRecord::Base.connection.execute(sqlQuery())  
+      if results.present? 
+          rep =[]
+        return results.as_json
       else
-        return nil
-    end
+      return nil
+        if results.present? 
+            rep =[]
+          return results.as_json
+          else
+            return nil
+        end
+      end
   end
-end
 
 def index
-@hashResults = executeQuery() #execute la requete qui est plus haute
+@hashResults = executeQuery()
 @hashResults.inspect
 @hash = Gmaps4rails.build_markers(@hashResults) do |res, marker|
-
-
+      
           marker.lat res[3]
-          marker.lng res[4]
-          marker.infowindow "<b>Administrator name:</b> "+ res[0]+"</br>"
-          +"<b>Technician name: </b>"+res[1]
-          # +"</br>"+"<b>Address: </b>"+res[2]+"</br>"+"<b>Latitude: </b>"+ res[3]+"</br>"+"<b>Longitude: </b>"+ res[4]+"</br>"+"<b>Number of batteries: </b>"+ res[5].to_s+"</br>"+"<b>Number of columns: </b>"+ res[6].to_s+"</br>"+"<b>Number of elevators: </b>"+ res[7].to_s+"</br>"
+          marker.lng res[4]          
+          marker.infowindow "<h5><font color='#3498db'>" + res[0] +"</font></h5> Technician name: "+ res[1]  +"</br>Address: "+ res[2] +"</br>Number of batteries: "+ res[5].to_s + "</br>Number of columns: " + res[6].to_s + "</br> Number of elevators: " + res[7].to_s        
 
       end 
   end
