@@ -36,14 +36,21 @@ class LeadsController < ApplicationController
         end
 end
   
-def dropbox 
-    client = DropboxApi::Client.new
-    
-    lead = lead.where().firt
+    def dropbox 
+        client = DropboxApi::Client.new
+        result = client.list_folder "/50"
 
-   # public/uploads/lead/attachment
+        #puts client.inspect
+        #puts "------------------------"
+        #result = clien.create_folder "/50"
 
-   client.uploads(,lead.attached_fille)
+        
+        lead = Lead.where().firt
 
-   puts resulltat 
-    
+        # public/uploads/lead/attachment
+
+        client.uploads(,lead.attached_fille)
+
+        puts resultat.inspect
+    end
+  
