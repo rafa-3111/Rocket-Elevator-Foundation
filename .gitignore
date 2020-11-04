@@ -36,3 +36,5 @@ database.yml
 dwh_db.yml
 
 public/uploads/lead/attachment
+
+/config/application.yml
