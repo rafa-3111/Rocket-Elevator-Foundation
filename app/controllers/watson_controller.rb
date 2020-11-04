@@ -20,7 +20,7 @@ class WatsonController < ApplicationController
         batteries = Battery.count
         cities = Address.count(city)
 
-        File.new("app/assets/audios/greetings.wav", "wb") do |audio_file|
+        File.open("app/assets/audios/greetings.wav", "wb") do |audio_file|
             response = text_to_speech.synthesize(
                 text: " Greetings,
                         There are currently #(elevators.to_s) elevators deployed in the #(buildings.to_s) of your #(customers.to_s). 
@@ -30,8 +30,8 @@ class WatsonController < ApplicationController
                         #(batteries.to_s) Batteries are deployed across #(cities.to_s) cities. ",
                 accept: "audio/wav",
                 voice: "en-US_AllisonV3Voice"
-            ).result
-            audio_file << response
+            )
+            audio_file.write(response.results)
         end
     end
 end

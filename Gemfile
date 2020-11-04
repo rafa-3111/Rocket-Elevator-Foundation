@@ -114,4 +114,4 @@ gem 'twilio-ruby'
 gem 'gmaps4rails'
 gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
 gem "geocoder"
-
+gem "rails_admin_import", "~> 2.2"
