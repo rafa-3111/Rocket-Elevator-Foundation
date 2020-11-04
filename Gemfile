@@ -109,7 +109,7 @@ group :production do
 end
 
 
-gem "figaro"
+
 
 gem 'twilio-ruby'
 
