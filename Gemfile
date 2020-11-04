@@ -107,3 +107,13 @@ group :production do
   # or :staging or :beta or whatever environments you are using cloudflare in.
   # you probably don't want this for :test or :development
 end
+
+
+gem "figaro"
+
+gem 'twilio-ruby'
+
+gem 'gmaps4rails'
+gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
+gem "geocoder"
+

@@ -27,4 +27,7 @@
 //= require rails.validations.simple_form
 //= require chartkick
 //= require Chart.bundle
+//= require underscore
+//= require gmaps/google
+//= require rails-ujs
 //= require_tree .
