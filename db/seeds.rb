@@ -8,7 +8,8 @@
 
 # user = CreateAdminService.new.call
 # puts 'CREATED ADMIN USER: ' << user.email
-
+# require 'csv'
+# table = CSV.parse(File.read("address.csv"), headers: true)
 User.destroy_all
 Address.destroy_all
 Battery.destroy_all
@@ -204,7 +205,7 @@ end
 
 def create_customer randCustomerCreation
     for i in 1..randCustomerCreation do
-        addressy = Addressy::US.fetch(10)
+         addressy = Addressy::US.fetch(10)
 
         tmp_user = User.create(
             first_name: Faker::Name.unique.first_name,
