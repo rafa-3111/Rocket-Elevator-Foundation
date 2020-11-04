@@ -1,6 +1,7 @@
 class Elevator < ApplicationRecord
   belongs_to :column
   before_update :twilio_sms
+  before_update :slack
 
 
 
@@ -19,6 +20,19 @@ class Elevator < ApplicationRecord
       
     end
   end
+
+
+  def slack
+      if self.elevator_status_changed?
+        require 'date'
+        current_time = DateTime.now.strftime("%d-%m-%Y %H:%M")
+        notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
+        notifier.ping "The Elevator #{self.id} with Serial Number #{self.serial_number} changed status from #{self.elevator_status_was} to #{self.elevator_status} at #{current_time}."
+  
+
+      end
+  end 
+  
 end
 
 
