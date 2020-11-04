@@ -49,7 +49,7 @@ end
 
         # public/uploads/lead/attachment
 
-        client.uploads(,lead.attached_fille)
+        client.uploads(lead.attached_fille)
 
         puts resultat.inspect
     end
