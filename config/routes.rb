@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'geolocation/index'
+  
   mount RailsAdmin::Engine => '/backoffice', as: 'rails_admin'
   
   resources :leads
