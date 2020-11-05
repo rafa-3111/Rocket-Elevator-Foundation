@@ -2,6 +2,7 @@
 
 RailsAdmin.config do |config|
   
+  
   # Static link in Rails Admin left navigation bar
   config.navigation_static_label = "SERVICES"
 
