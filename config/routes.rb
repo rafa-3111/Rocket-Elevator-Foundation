@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-
-  get 'geolocation/index'
   mount RailsAdmin::Engine => '/backoffice', as: 'rails_admin'
   
+  get 'geolocation/index'
+
   resources :leads
   resources :quotes , only: [:user_quotes, :new, :create]
 
@@ -23,4 +23,7 @@ Rails.application.routes.draw do
 
   get 'my_quotes' => 'quotes#user_quotes', as: :my_quotes
   get 'my_leads' => 'leads#user_leads', as: :my_leads
+
+  match '/watson' => 'watson#speak', via: :get
+
 end

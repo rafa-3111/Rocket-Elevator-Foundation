@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+
+  # admin:
+  #   actions:
+  #     tool:
+  #       title: "SITE ADMINISTRATION"
+  #       menu: "Status"
+  #       breadcrumb: "Status"
