@@ -40,3 +40,4 @@ public/uploads/lead/attachment
 # Ignore application configuration
 /config/application.yml
 
+sendgrid.env
