@@ -395,6 +395,7 @@ DEPENDENCIES
   geocoder
   gmaps4rails
   groupdate (~> 5.2, >= 5.2.1)
+  haml
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
