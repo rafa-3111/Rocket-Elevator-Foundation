@@ -35,3 +35,22 @@ class LeadsController < ApplicationController
             params.require(:lead).permit(:attachment, :full_name, :email, :phone, :business_name, :project_name, :department, :project_description, :message, :user_id)
         end
 end
+  
+    def dropbox 
+        client = DropboxApi::Client.new
+        result = client.list_folder "/50"
+
+        #puts client.inspect
+        #puts "------------------------"
+        #result = clien.create_folder "/50"
+
+        
+        lead = Lead.where().firt
+
+        # public/uploads/lead/attachment
+
+        client.uploads(lead.attached_fille)
+
+        puts resultat.inspect
+    end
+  
