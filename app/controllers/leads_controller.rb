@@ -44,6 +44,7 @@ class LeadsController < ApplicationController
         response = sg.client.mail._("send").post(request_body: mail.to_json)
     rescue Exception => e
         puts e.message
+        puts "message send"
     end 
     #  end send mail
 
