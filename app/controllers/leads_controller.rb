@@ -15,7 +15,25 @@ class LeadsController < ApplicationController
         puts lead_params 
         @lead.save
         
-    # #   send mail
+        send_mails()
+
+
+        # UI confirmation
+        respond_to do |format|
+            if @lead.save && user_signed_in?
+                format.html { redirect_to my_leads_path, notice: 'Your lead as been successfully register !' }
+
+            elsif @lead.save && !user_signed_in?
+                format.html { redirect_to root_path, notice: 'Your lead as been successfully register !' }
+            else
+                format.html { render :new }
+            end
+        end
+    end
+
+    
+   def send_mails
+# #   send mail
 
     #     # sendgrid sending 
     puts "********************* variable ***********************"    
@@ -37,33 +55,20 @@ class LeadsController < ApplicationController
       "projectName" => project_name
     })
     mail.add_personalization(personalization)
-    mail.template_id = 'd-b72925a3cde14490a006cfa172765874'
+    mail.template_id = 'd-b1fddbc33b4a43789005ec4fd37e132d'
     
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
     begin
         response = sg.client.mail._("send").post(request_body: mail.to_json)
+        puts response.status_code
+        puts response.body
+        puts response.parsed_body
+        puts response.headers
     rescue Exception => e
         puts e.message
-        puts "message send"
-    end 
-    #  end send mail
-
-
-        # UI confirmation
-        respond_to do |format|
-            if @lead.save && user_signed_in?
-                format.html { redirect_to my_leads_path, notice: 'Your lead as been successfully register !' }
-
-            elsif @lead.save && !user_signed_in?
-                format.html { redirect_to root_path, notice: 'Your lead as been successfully register !' }
-            else
-                format.html { render :new }
-            end
-        end
     end
-
-    
-   
+    #  end send mail
+   end
 
 
 
