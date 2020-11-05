@@ -42,5 +42,3 @@ public/uploads/lead/attachment
 /config/application.yml
 
 sendgrid.env
-sendgrid.env
-sendgrid.env
