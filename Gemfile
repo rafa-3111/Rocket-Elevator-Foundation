@@ -89,6 +89,20 @@ group :development do
   gem 'capistrano-bundler', '>= 1.1.0'
   gem 'rvm1-capistrano3', require: false
   gem 'capistrano3-puma'
+
+  gem 'figaro'
+  gem 'twilio-ruby'
+  gem 'ibm_watson'
+  gem 'gmaps4rails'
+  gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
+  gem 'geocoder'
+  gem 'rails_admin_import', '~> 2.2'
+  gem 'haml'
+  gem 'slack-ruby-client'
+  gem 'slack-notifier'
+  gem 'dropbox-api'
+  gem 'dropbox_api'
+  gem 'sendgrid-ruby'
 end
 
 group :test do
@@ -106,18 +120,3 @@ group :production do
   # or :staging or :beta or whatever environments you are using cloudflare in.
   # you probably don't want this for :test or :development
 end
-
-
-gem 'figaro'
-gem 'twilio-ruby'
-gem 'ibm_watson'
-gem 'gmaps4rails'
-gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
-gem 'geocoder'
-gem 'rails_admin_import', '~> 2.2'
-gem 'haml'
-gem 'slack-ruby-client'
-gem 'slack-notifier'
-gem 'dropbox-api'
-gem 'dropbox_api'
-gem 'sendgrid-ruby'
