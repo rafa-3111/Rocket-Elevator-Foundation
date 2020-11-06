@@ -7,14 +7,8 @@ include IBMWatson
 class WatsonController < ActionController::Base
         
     def speak
-        authenticator = Authenticators::IamAuthenticator.new(
-        apikey: ENV["waston_api_key"]
-        )
-
-        text_to_speech = TextToSpeechV1.new(
-        authenticator: authenticator
-        )
-
+        authenticator = Authenticators::IamAuthenticator.new(apikey: ENV["waston_api_key"])
+        text_to_speech = TextToSpeechV1.new(authenticator: authenticator)
         text_to_speech.service_url = ENV["watson_api_url"]
 
         message = "Greetings #{current_user.first_name} #{current_user.last_name}. There is #{Elevator::count} elevators in #{Building::count} buildings of your 
