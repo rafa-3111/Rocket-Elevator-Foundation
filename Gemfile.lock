@@ -143,6 +143,10 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dropbox-api (0.4.2)
+      hashie
+      multi_json
+      oauth
     dropbox_api (0.1.18)
       faraday (<= 1.0)
       oauth2 (~> 1.1)
@@ -252,6 +256,7 @@ GEM
     nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+    oauth (0.5.4)
     oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
@@ -439,6 +444,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner-active_record
   devise
+  dropbox-api
   dropbox_api
   faker (~> 2.14)
   figaro

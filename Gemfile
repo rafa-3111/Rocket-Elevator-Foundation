@@ -63,7 +63,6 @@ gem 'carrierwave', '~> 2.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0'
-gem 'dropbox_api'
 
 
 group :development, :test do
@@ -109,14 +108,15 @@ group :production do
 end
 
 
-gem "figaro"
-
+gem 'figaro'
 gem 'twilio-ruby'
 gem 'ibm_watson'
 gem 'gmaps4rails'
 gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
-gem "geocoder"
-gem "rails_admin_import", "~> 2.2"
-gem "haml"
+gem 'geocoder'
+gem 'rails_admin_import', '~> 2.2'
+gem 'haml'
 gem 'slack-ruby-client'
-gem "slack-notifier"
+gem 'slack-notifier'
+gem 'dropbox-api'
+gem 'dropbox_api'
