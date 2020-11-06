@@ -120,4 +120,5 @@ gem 'slack-ruby-client'
 
 gem "slack-notifier"
 
+gem "zendesk_api"
 
