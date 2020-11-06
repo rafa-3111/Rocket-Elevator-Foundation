@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby '2.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
 # Use mysql as the database for Active Record
@@ -64,6 +64,7 @@ gem 'carrierwave', '~> 2.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0'
 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -88,6 +89,21 @@ group :development do
   gem 'capistrano-bundler', '>= 1.1.0'
   gem 'rvm1-capistrano3', require: false
   gem 'capistrano3-puma'
+
+  gem 'figaro'
+  gem 'twilio-ruby'
+  gem 'ibm_watson'
+  gem 'gmaps4rails'
+  gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
+  gem 'geocoder'
+  gem 'rails_admin_import', '~> 2.2'
+  gem 'haml'
+  gem 'slack-ruby-client'
+  gem 'slack-notifier'
+  gem 'dropbox-api'
+  gem 'dropbox_api'
+  gem 'sendgrid-ruby'
+  gem "zendesk_api"
 end
 
 group :test do
@@ -105,20 +121,3 @@ group :production do
   # or :staging or :beta or whatever environments you are using cloudflare in.
   # you probably don't want this for :test or :development
 end
-
-
-gem "figaro"
-
-gem 'twilio-ruby'
-
-gem 'gmaps4rails'
-gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
-gem "geocoder"
-
-
-gem 'slack-ruby-client'
-
-gem "slack-notifier"
-
-gem "zendesk_api"
-

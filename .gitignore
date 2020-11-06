@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/log/development.log 
 
 # Ignore uploaded files in development
 /storage/*
@@ -39,3 +40,5 @@ public/uploads/lead/attachment
 
 # Ignore application configuration
 /config/application.yml
+
+sendgrid.env

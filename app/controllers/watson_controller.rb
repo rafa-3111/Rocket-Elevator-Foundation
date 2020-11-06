@@ -1,37 +1,29 @@
-class WatsonController < ApplicationController
-    require "ibm_watson/authenticators"
-    require "ibm_watson/text_to_speech_v1"
-    include IBMWatson
+require "json"
+require "ibm_watson"
+require "ibm_watson/authenticators"
+require "ibm_watson/text_to_speech_v1"
+include IBMWatson
 
-    def greeting
-        authenticator = Authenticators::IamAuthenticator.new(
-        apikey: "waston_api_key"
-        )
-        text_to_speech = TextToSpeechV1.new(
-        authenticator: authenticator
-        )
-        text_to_speech.service_url = "watson_api_url"
-        elevators = Elevator.count
-        buildings = Building.count
-        customers = Customer.count
-        not_active_elevators = Elevator.where.not(elevator_status:'active').count
-        quotes = Quote.count
-        leads = Lead.count
-        batteries = Battery.count
-        cities = Address.count(city)
+class WatsonController < ActionController::Base
+        
+    def speak
+        authenticator = Authenticators::IamAuthenticator.new(apikey: ENV["waston_api_key"])
+        text_to_speech = TextToSpeechV1.new(authenticator: authenticator)
+        text_to_speech.service_url = ENV["watson_api_url"]
 
-        File.new("app/assets/audios/greetings.wav", "wb") do |audio_file|
-            response = text_to_speech.synthesize(
-                text: " Greetings,
-                        There are currently #(elevators.to_s) elevators deployed in the #(buildings.to_s) of your #(customers.to_s). 
-                        Currently, #(not_active_elevators.to_s) elevators are not in Running Status and are being serviced. 
-                        You currently have #(quotes.to_s) quotes awaiting processing. 
-                        You currently have #(leads.to_s) leads in your contact requests.
-                        #(batteries.to_s) Batteries are deployed across #(cities.to_s) cities. ",
-                accept: "audio/wav",
-                voice: "en-US_AllisonV3Voice"
-            ).result
-            audio_file << response
+        message = "Greetings #{current_user.first_name} #{current_user.last_name}. There is #{Elevator::count} elevators in #{Building::count} buildings of your 
+                    #{Customer::count} customers. Currently, #{Elevator.where(elevator_status: 'Intervention').count} elevators are not in 
+                    Running Status and are being serviced. You currently have #{Quote::count} quotes awaiting processing.
+                    You currently have #{Lead::count} leads in your contact requests. 
+                    #{Battery::count} Batteries are deployed across 
+                    #{Address.where(id: Building.select(:address_id).distinct).select(:city).distinct.count} cities."
+        response = text_to_speech.synthesize(
+            text: message,
+            accept: "audio/wav",
+            voice: "en-US_AllisonV3Voice"
+        ).result
+        File.open("#{Rails.root}/public/greetings.wav", "wb") do |audio_file|
+                        audio_file.write(response)
         end
     end
 end
