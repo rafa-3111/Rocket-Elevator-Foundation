@@ -47,7 +47,7 @@ class LeadsController < ApplicationController
     puts "********************************************"
         
     mail = Mail.new
-    mail.from = Email.new(email: 'saadeddine.feki@gmail.com')
+    mail.from = Email.new(email: 'rocketelevatorscorp@gmail.com')
     personalization = Personalization.new
     personalization.add_to(Email.new(email: email))
     personalization.add_dynamic_template_data({
@@ -55,11 +55,11 @@ class LeadsController < ApplicationController
       "projectName" => project_name
     })
     mail.add_personalization(personalization)
-    mail.template_id = 'd-b1fddbc33b4a43789005ec4fd37e132d'
+    mail.template_id = 'd-85f237599dfe4df8a0896aa0ad379983'
     
-    sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+    conf = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
     begin
-        response = sg.client.mail._("send").post(request_body: mail.to_json)
+        response = conf.client.mail._("send").post(request_body: mail.to_json)
         puts response.status_code
         puts response.body
         puts response.parsed_body
