@@ -1,4 +1,4 @@
-# Rocket Elevators Information System
+# Rocket Elevators API
 
 ## Week-7, Team Project Description
 
@@ -47,11 +47,55 @@ This app implements APIs in order to offer great user experience.
 
 ![](app\assets\images\map.png)
 
+
+## API Twilio
+
+
+
+## API Slack
+
+
+
+## API DropBox
+
+- [DropBox](https://github.com/zendesk/dropbox-api)
+  The Api is used to upload on the cloud storage the attachment from a Contact when it becomes a Customer and delete the file
+  from the database to avoid duplatation.
+
+```sh
+  1. Sign In
+  2. On the left panel, select Customers 
+  3. Select Add New
+  4. Select the User who needs to be converted
+  5. Click on Save after filling out the form.
+```
+
+
 ## API Sendgrid
 
 - [Sendgrid](https://github.com/sendgrid/sendgrid-ruby)
   This Api will be triggered if a contact completes the "Contact Us" form to send customized transactional thank-you email.
   In order to send dynamic content, sendgrid use a JSON blob containing the dynamic data and a html template.
+
+
+## API IBM Watson
+
+- [IBM Watson](https://github.com/watson-developer-cloud/ruby-sdk)
+  The Api is used to allow the current user of the BackOffice to hear via text-to-speech the current status of all his/her assets.
+
+```sh
+  1. Sign In
+  2. Hit the play button on the audio player right under Dashboard 
+  3. The audio file will be generated based on the assets of the current user and will be playable.
+```
+
+## API ZenDesk
+
+
+
+
+
+
 
 ## Utils
 
