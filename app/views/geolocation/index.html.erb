@@ -61,35 +61,59 @@
             streetViewControlOptions: {
                 position: google.maps.ControlPosition.LEFT_TOP
             },
-            fullscreenControl: true
+            fullscreenControl: true,
+            
         }
     }
 
     function mapInitialisation(){
 
             handler = Gmaps.build('Google');
+            
             handler.buildMap({
-                provider: {
-                disableDefaultUI: true
-                },
+                
                 internal: {
                 id: 'map'
-                }
+                },
+                zoomControl: true,
+                fullscreenControl: true,
+                
             },
-            function(){               
-                
-                var mapCenter = {
-                    "lat": 40.730610,
-                    "lng": -73.935242,
-                }
-                
-                handler.fitMapToBounds();
-                handler.getMap().setOptions(mapOptions())
-                handler.getMap().setZoom(6)
-                handler.getMap().setCenter(mapCenter)
-                markers = handler.addMarkers(<%=raw @hash.to_json %>);
-                handler.bounds.extendWith(markers);
-            }
+            function() {
+
+ <% @places_list.each_with_index do |lp| %>
+              name =  "<h5><%= lp[:name] %></h5> </br>Address: <%= lp[:address] %> </br>Client Name: <%= lp[:client] %></br>Number of Batteries: <%= lp[:battery] %></br>Number of Columns: <%= lp[:column] %></br>Number of Elevators: <%= lp[:elevator] %></br>Technician Name: <%= lp[:technician] %>"
+
+              lat = <%= lp[:lat] %>;
+              lng = <%= lp[:lng] %>;
+
+
+              
+            
+
+
+    markers = handler.addMarkers([
+      {
+        "lat": lat,
+        "lng": lng,
+        "infowindow": name
+      }
+    ]);
+
+  
+
+    handler.bounds.extendWith(markers);
+    <% end %>
+    handler.map.centerOn({
+      lat:  40.730610, lng: -73.935242
+    });
+    //  handler.getMap().setOptions(mapOptions())
+    handler.getMap().setZoom(5);
+
+     
+  }
+
+  
         );
 
             
@@ -97,3 +121,4 @@
     }
     
 </script>
+
