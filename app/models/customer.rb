@@ -2,8 +2,8 @@ class Customer < ApplicationRecord
   has_many :buildings
   has_one :address, :dependent => :delete
   belongs_to :user
-  # after_create :extract_file
-  # after_update :extract_file
+  after_create :extract_file
+  after_update :extract_file
 
   def extract_file
     user = User.find(self.user_id)
@@ -43,9 +43,4 @@ class Customer < ApplicationRecord
       end
     end
   end
-
-  def custom_label_method
-    "#{first_name} #{last_name}"
-  end
-
 end
