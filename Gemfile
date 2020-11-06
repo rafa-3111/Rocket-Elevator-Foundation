@@ -103,6 +103,7 @@ group :development do
   gem 'dropbox-api'
   gem 'dropbox_api'
   gem 'sendgrid-ruby'
+  gem "zendesk_api"
 end
 
 group :test do
