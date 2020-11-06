@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
+
+  get 'geolocation/index'
+  
+
   mount RailsAdmin::Engine => '/backoffice', as: 'rails_admin'
   
-  get 'geolocation/index'
+
 
   resources :leads
   resources :quotes , only: [:user_quotes, :new, :create]
