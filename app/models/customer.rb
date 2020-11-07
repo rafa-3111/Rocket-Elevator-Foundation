@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   belongs_to :user
 
   # This will trigger the method extract_file when a customer is either created or updated
-  #after_create :extract_file
+  after_create :extract_file
   after_update :extract_file
 
   # This is the method to extract the attached file from a contact when it is converted as a Customer
