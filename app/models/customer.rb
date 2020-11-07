@@ -51,4 +51,11 @@ class Customer < ApplicationRecord
       end
     end
   end
+
+  def custom_label_method
+    "#{User.find(user_id).first_name} #{User.find(user_id).last_name}"
+  rescue => e
+    puts e
+  end
+  
 end
