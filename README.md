@@ -50,11 +50,24 @@ This app implements APIs in order to offer great user experience.
 
 
 ## API Twilio
-
-
+```sh
+  1. Go to Rocket Elevators group and select elevator_operations
+  2. Go to the backoffice
+  3. Select the elevator, the column, the battery, the building and change the technician phone to your phone number
+  4. Go back to the elevator and change the status to "Intervention"
+  5. You'll then receive a sms that require the maintenance
+  ```
+I added the phone number for the test, so you won't have any problems.
 
 ## API Slack
 
+```sh
+  1. Open the Slack app and open the chanel 
+  2. Go to Rocket Elevators group and select elevator_operations
+  3. Go to the backoffice, select the elevator. 
+  4. Change elevator status
+  5. You'll see a notife in slack about the change
+```
 
 
 ## API DropBox
@@ -96,6 +109,12 @@ This app implements APIs in order to offer great user experience.
 ```
 
 ## API ZenDesk
+```sh
+  1. Open ZenDesk and connect with the username and password 
+  2. Open the dashboard 
+  3. When you create a quote or a contact us form, this information will be sent to the dashboard
+
+```
 
 ## Utils
 
