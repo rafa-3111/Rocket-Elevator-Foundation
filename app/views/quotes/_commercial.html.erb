@@ -12,6 +12,10 @@
     <div class="form-inputs row">
       <%= f.input :product_line, as: :radio_buttons, collection: [['Standard'], ['Premium'], ['Excelium']], label_method: :first, value_method: :first, required: 'true'  %>
     </div>
+     <div class="form-inputs row justify-content-center">
+ 
+    <%= recaptcha_tags required: 'true' %>
+    </div>
     <%= f.hidden_field :total_price, class: "total_price" %>
     <%= f.hidden_field :install_fee, class: "install_fee" %>
     <%= f.hidden_field :elevator_number, class: "elevator_number" %>

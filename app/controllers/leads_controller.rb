@@ -19,8 +19,10 @@ class LeadsController < ApplicationController
 
 
         # UI confirmation
+
+        if verify_recaptcha(model: @lead)
         respond_to do |format|
-            if @lead.save && user_signed_in?
+            if @lead.save  && user_signed_in?
                 format.html { redirect_to my_leads_path, notice: 'Your lead as been successfully register !' }
 
             elsif @lead.save && !user_signed_in?
@@ -29,6 +31,9 @@ class LeadsController < ApplicationController
                 format.html { render :new }
             end
         end
+    else
+        redirect_to root_path(anchor: "contact")
+    end
     end
 
     

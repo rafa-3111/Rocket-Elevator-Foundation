@@ -22,13 +22,18 @@ class QuotesController < ApplicationController
   def create
     @quote = Quote.new(quote_params)
     @quote.user_id = current_user.id
-    @quote.save
-    respond_to do |format|
-      if @quote.save
-        format.html { redirect_to my_quotes_path, notice: 'Quote was successfully created !' }
-      else
-        format.html { render :new }
-      end
+    if verify_recaptcha(model: @lead)
+      @quote.save
+      respond_to do |format|
+          if @quote.save 
+            format.html { redirect_to my_quotes_path, notice: 'Quote was successfully created !' }
+          else         
+            format.html { render :new }
+          end
+        end
+    else
+      
+      render :new
     end
   end
 

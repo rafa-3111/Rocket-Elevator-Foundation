@@ -4,13 +4,14 @@
 
 This app implements APIs in order to offer great user experience.
 
-- Google Maps
 - Twilio
 - Slack
 - DropBox
-- SendGrid
 - IBM Watson
 - ZenDesk
+- Google Maps
+- recaptcha
+- SendGrid
 
 **Here is the information you must enter in the sign in page to access the BackOffice :**
 
@@ -78,6 +79,11 @@ This app implements APIs in order to offer great user experience.
   In order to send dynamic content, sendgrid use a JSON blob containing the dynamic data and a html template.
 
 
+## API Recaptcha
+  - [Recaptcha](https://github.com/ambethia/recaptcha)
+    reCAPTCHA uses an advanced risk analysis engine and adaptive challenges to keep malicious software from engaging in abusive activities on your website.
+
+
 ## API IBM Watson
 
 - [IBM Watson](https://github.com/watson-developer-cloud/ruby-sdk)
@@ -90,12 +96,6 @@ This app implements APIs in order to offer great user experience.
 ```
 
 ## API ZenDesk
-
-
-
-
-
-
 
 ## Utils
 

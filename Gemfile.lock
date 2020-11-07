@@ -215,6 +215,7 @@ GEM
       character_set (~> 1.4)
       regexp_parser (~> 1.8, >= 1.8.2)
       regexp_property_values (~> 1.0)
+    json (2.3.1)
     jwt (2.2.2)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
@@ -326,6 +327,8 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    recaptcha (5.6.0)
+      json
     regexp_parser (1.8.2)
     regexp_property_values (1.0.0)
     remotipart (1.4.4)
@@ -477,6 +480,7 @@ DEPENDENCIES
   rails_admin_import (~> 2.2)
   rails_admin_material
   rails_admin_rollincode (~> 1.0)
+  recaptcha
   rvm1-capistrano3
   sass-rails (~> 5.0)
   selenium-webdriver
