@@ -121,3 +121,4 @@ gem 'slack-notifier'
 gem 'dropbox-api'
 gem 'dropbox_api'
 gem 'sendgrid-ruby'
+gem "recaptcha", require: "recaptcha/rails"

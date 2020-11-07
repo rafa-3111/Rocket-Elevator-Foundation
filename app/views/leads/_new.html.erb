@@ -47,6 +47,7 @@
                 <div class="form-group col-md-10">
                   <%= form_lead.file_field :attachment, class: "form-control" %>
                 </div>
+                  <%= recaptcha_tags %>
                 <div class="form-group send-info">
                   <%= form_lead.button :submit, 'Send Info', class: 'btn btn-red' %>
                 </div>
