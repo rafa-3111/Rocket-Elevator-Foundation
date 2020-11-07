@@ -44,12 +44,9 @@ This app implements APIs in order to offer great user experience.
   3. to display statics click on the markers
 ```
 
-  <hr>
-
-![](app\assets\images\map.png)
-
 
 ## API Twilio
+
 ```sh
   1. Go to Rocket Elevators group and select elevator_operations
   2. Go to the backoffice
@@ -69,7 +66,6 @@ I added the phone number for the test, so you won't have any problems.
   5. You'll see a notife in slack about the change
 ```
 
-
 ## API DropBox
 
 - [DropBox](https://github.com/zendesk/dropbox-api)
@@ -84,7 +80,6 @@ I added the phone number for the test, so you won't have any problems.
   5. Click on Save after filling out the form.
 ```
 
-
 ## API Sendgrid
 
 - [Sendgrid](https://github.com/sendgrid/sendgrid-ruby)
@@ -93,6 +88,7 @@ I added the phone number for the test, so you won't have any problems.
 
 
 ## API Recaptcha
+
   - [Recaptcha](https://github.com/ambethia/recaptcha)
     reCAPTCHA uses an advanced risk analysis engine and adaptive challenges to keep malicious software from engaging in abusive activities on your website.
 
@@ -109,12 +105,13 @@ I added the phone number for the test, so you won't have any problems.
 ```
 
 ## API ZenDesk
+
 ```sh
   1. Open ZenDesk and connect with the username and password 
   2. Open the dashboard 
   3. When you create a quote or a contact us form, this information will be sent to the dashboard
-
 ```
+
 
 ## Utils
 
