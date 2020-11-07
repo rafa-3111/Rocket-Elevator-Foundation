@@ -80,6 +80,8 @@ class LeadsController < ApplicationController
     def edit
         @lead = Lead.edit
     end
+    
+
 
     def new
         @lead = Lead.new
@@ -89,12 +91,6 @@ class LeadsController < ApplicationController
         def lead_params
             params.require(:lead).permit(:attachment, :full_name, :email, :phone, :business_name, :project_name, :department, :project_description, :message, :user_id)
         end
-
-
-
-       
-
-
 end
   
     

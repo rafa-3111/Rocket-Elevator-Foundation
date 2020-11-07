@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby '2.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
 # Use mysql as the database for Active Record
@@ -89,6 +89,22 @@ group :development do
   gem 'capistrano-bundler', '>= 1.1.0'
   gem 'rvm1-capistrano3', require: false
   gem 'capistrano3-puma'
+
+  gem 'figaro'
+  gem 'twilio-ruby'
+  gem 'ibm_watson'
+  gem 'gmaps4rails'
+  gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
+  gem 'geocoder'
+  gem 'rails_admin_import', '~> 2.2'
+  gem 'haml'
+  gem 'slack-ruby-client'
+  gem 'slack-notifier'
+  gem 'dropbox-api'
+  gem 'dropbox_api'
+  gem 'sendgrid-ruby'
+  gem "zendesk_api"
+  gem "recaptcha", require: "recaptcha/rails"
 end
 
 group :test do
@@ -107,18 +123,3 @@ group :production do
   # you probably don't want this for :test or :development
 end
 
-
-gem 'figaro'
-gem 'twilio-ruby'
-gem 'ibm_watson'
-gem 'gmaps4rails'
-gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
-gem 'geocoder'
-gem 'rails_admin_import', '~> 2.2'
-gem 'haml'
-gem 'slack-ruby-client'
-gem 'slack-notifier'
-gem 'dropbox-api'
-gem 'dropbox_api'
-gem 'sendgrid-ruby'
-gem "recaptcha", require: "recaptcha/rails"
