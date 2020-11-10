@@ -11,7 +11,7 @@ class Lead < ApplicationRecord
 
     mount_uploader :attachment, AttachmentUploader
 
-    after_create :new_lead_ticket
+    # after_create :new_lead_ticket
 
 
     # ZENDESK SECTION FOR THE CONTACT FORM  
