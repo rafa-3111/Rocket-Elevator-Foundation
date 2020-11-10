@@ -1,17 +1,16 @@
 class CreateFactInterventions < ActiveRecord::Migration[5.2]
   def change
     create_table :fact_interventions do |t|
-      t.int :employee_id
-      t.int :building_id
-      t.int :battery_id
-      t.int :column_id
-      t.int :elevator_id
+      t.integer :employee_id
+      t.integer :building_id
+      t.integer :battery_id
+      t.integer :column_id
+      t.integer :elevator_id
       t.string :status
       t.string :results
       t.string :repport
-      t.string :intervention_start
-      t.string :intervention_finish
-      t.string :status default: "Pending"
+      t.datetime :intervention_start
+      t.datetime :intervention_finish
 
       t.timestamps
     end
