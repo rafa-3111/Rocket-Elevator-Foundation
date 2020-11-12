@@ -91,30 +91,28 @@ module Dwh
        battery = Battery.find(column.battery_id)
        building = Building.find(battery.building_id)
        address = Address.find(building.address_id)
-
        elevator = Elevator.find(e.id).elevator_status
        intervention_start = Faker::Date.between(from: '2017-09-23', to: '2020-09-25')
    
 
 
-         if elevator == "Intervention"
-         
-           FactIntervention.create!({
+       
+       FactIntervention.create!({
 
              
-             building_id: building.id,
-             battery_id: battery.id,
-             column_id: column.id,
-             elevator_id: e.id,
-             intervention_start: intervention_start,
-             intervention_finish: intervention_start + 2.days,
-             status: ["Pending", "InProgress", "Interrupted", "Resumed", "Complete"].sample,
-             results: ["Success", "Failure", "Incomplete"].sample,
-
-             employee_id: building.technical_contact_id
-           })
+        building_id: building.id,
+        battery_id: battery.id,
+        column_id: column.id,
+        elevator_id: e.id,
+        intervention_start: intervention_start,
+        intervention_finish: intervention_start + 2.days,
+        status: ["Pending", "InProgress", "Interrupted", "Resumed", "Complete"].sample,
+        results: ["Success", "Failure", "Incomplete"].sample,
+        repport: nil,
+        employee_id: building.technical_contact_id
+      })
          
-       end
+       
 
 
      end
