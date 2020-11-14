@@ -1,6 +1,46 @@
 # Rocket Elevators API
 
-## Week-7, Team Project Description
+## Week-8, Team Project Description
+
+The url of the website is : [ROCKET ELEVATOR](https://alexleblanc-rocketelevators.xyz/) <br>
+The website was deployed on Heroku : [HEROKU](https://devcenter.heroku.com/articles/getting-started-with-rails5)
+
+This week we have connected our information system to the equipment in operation throughout the territory served thanks to an API called REST
+this allowed us to manipulate the various statuses of our database. 
+Here are the different examples that our application allows to do : 
+
+- Retrieving the current status of a specific Battery
+- Changing the status of a specific Battery
+- Retrieving the current status of a specific Column
+- Changing the status of a specific Column
+- Retrieving the current status of a specific Elevator
+- Changing the status of a specific Elevator
+- Retrieving a list of Elevators that are not in operation at the time of the request
+- Retrieving a list of Buildings that contain at least one battery, column or elevator requiring intervention
+- Retrieving a list of Leads created in the last 30 days who have not yet become customers.
+
+
+If you want to have more details on the REST API, here is the official site : [REST API](https://restfulapi.net/)
+
+The deployment of the REST API was done on Azure : [AZURE](https://docs.microsoft.com/en-us/azure/app-service/deploy-continuous-deployment)
+
+We have created a new table called fact intervention in our Postgres database. Here are the different parameters : 
+
+- EmployeeID
+- BuildingID
+- BatteryID 
+- ColumnID 
+- ElevatorID 
+- Start date and time of the intervention
+- End date and time of the intervention 
+- Result 
+- Report 
+- Status 
+
+
+
+
+## WEEK 7
 
 This app implements APIs in order to offer great user experience.
 
