@@ -3,7 +3,6 @@
 ## Week-8, Team Project Description
 
 The url of the website is : [ROCKET ELEVATOR](https://alexleblanc-rocketelevators.xyz/) <br>
-The website was deployed on Heroku : [HEROKU](https://devcenter.heroku.com/articles/getting-started-with-rails5)
 
 This week we have connected our information system to the equipment in operation throughout the territory served thanks to an API called REST
 this allowed us to manipulate the various statuses of our database. 
