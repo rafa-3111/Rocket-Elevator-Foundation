@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_083608) do
+ActiveRecord::Schema.define(version: 2020_11_17_171130) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "building_id"
@@ -135,6 +135,21 @@ ActiveRecord::Schema.define(version: 2020_11_04_083608) do
     t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
+  create_table "interventions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "employee_id"
+    t.integer "building_id"
+    t.integer "battery_id"
+    t.integer "column_id"
+    t.integer "elevator_id"
+    t.string "status"
+    t.string "results"
+    t.string "repport"
+    t.datetime "intervention_start"
+    t.datetime "intervention_finish"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "full_name"
     t.string "email"
@@ -188,6 +203,21 @@ ActiveRecord::Schema.define(version: 2020_11_04_083608) do
     t.boolean "is_user", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "interventions", force: :cascade do |t|
+    t.integer "employee_id"
+    t.integer "building_id"
+    t.integer "battery_id"
+    t.integer "column_id"
+    t.integer "elevator_id"
+    t.string "status"
+    t.string "results"
+    t.string "repport"
+    t.datetime "intervention_start"
+    t.datetime "intervention_finish"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "addresses", "buildings"

@@ -21,6 +21,7 @@ Lead.destroy_all
 Quote.destroy_all
 Column.destroy_all
 Elevator.destroy_all
+Intervention.destroy_all
 
 DatabaseCleaner.clean_with(:truncation)
 
@@ -398,3 +399,18 @@ User.create(
     is_admin: true,
     is_user: false
 )
+
+#Intervention.create(
+#    employee_id: 
+#    customer_id: tmp_customer.id,
+#    building_id: tmp_building.id,
+#    battery_id: tmp_battery.id,
+#    column_id: tmp_column.id,
+#    elevator_id:
+#    start_date:Time.at((tmp_user.created_at.to_f - Time.local(2018, 7, 8).to_f)*rand + Time.local(2018, 7, 8).to_f),
+#    end_date:Time.at((tmp_user.created_at.to_f - Time.local(2018, 7, 8).to_f)*rand + Time.local(2018, 7, 8).to_f),
+#    resultat:
+#    report:
+#    status:["Active", "Inactive"].sample
+
+#)
