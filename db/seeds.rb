@@ -410,7 +410,7 @@ User.create(
 #    start_date:Time.at((tmp_user.created_at.to_f - Time.local(2018, 7, 8).to_f)*rand + Time.local(2018, 7, 8).to_f),
 #    end_date:Time.at((tmp_user.created_at.to_f - Time.local(2018, 7, 8).to_f)*rand + Time.local(2018, 7, 8).to_f),
 #    resultat:
-#    report:
+#    repport:
 #    status:["Active", "Inactive"].sample
 
 #)

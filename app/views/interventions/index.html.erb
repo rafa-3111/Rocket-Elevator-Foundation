@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Interventions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+      	<div class="row">
+											<div class="col-md-4">
+												<label for="contact:name">Full Name *</label>
+												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+											</div>
+											<div class="col-md-4">
+												<label for="contact:name">Business Name *</label>
+												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+											</div>
+
+
+											<div class="col-md-4">
+												<label for="contact:email">E-mail Address *</label>
+												<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
+											</div>
+											<div class="col-md-4">
+												<label for="contact:phone">Phone Number*</label>
+												<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
+											</div>
+									</div>
+									<div class="row">
+											<div class="col-md-8">
+												<label for="contact:subject">Project Name*</label>
+												<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
+											</div>
+
+											<div class="col-md-8">
+												<label for="contact:subject">Project Description*</label>
+												<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
+											</div>
+            <li class="dropdown nav-animate-fadeIn resp-active"><!-- SERVICES -->
+              <%= link_to 'SELECTOR', root_path(anchor: "intervention"), 'data-turbolinks': false %>
+              <ul class="dropdown-menu">
+                <li class="dropdown">
+                  <a href="/static_pages/intervention">Selector</a>
+                </li>
+              </ul>
+            </li>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interventions.each do |intervention| %>
+      <tr>
+        <td><%= link_to 'Show', intervention %></td>
+        <td><%= link_to 'Edit', edit_intervention_path(intervention) %></td>
+        <td><%= link_to 'Destroy', intervention, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Intervention', new_intervention_path %>
+
+

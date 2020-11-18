@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :interventions
   get 'geolocation/index'
  
 
@@ -10,10 +11,13 @@ Rails.application.routes.draw do
 
   resources :leads
   resources :quotes , only: [:user_quotes, :new, :create]
+ # resources :interventions , only: [:new, :create]
+
 
   root to: 'static_pages#index'
   get 'static_pages/residential'
   get 'static_pages/corporate'
+  get 'static_pages/intervention'
 
   devise_for :users,
   :controllers => { registrations: 'registrations'},
