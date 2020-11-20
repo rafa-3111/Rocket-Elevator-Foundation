@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   root to: 'static_pages#index'
   get 'static_pages/residential'
   get 'static_pages/corporate'
-  get 'static_pages/intervention'
+  #get 'static_pages/intervention'
 
   devise_for :users,
   :controllers => { registrations: 'registrations'},

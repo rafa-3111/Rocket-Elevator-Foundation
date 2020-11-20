@@ -401,6 +401,7 @@ User.create(
 )
 
 #Intervention.create(
+#    author_id: 
 #    employee_id: 
 #    customer_id: tmp_customer.id,
 #    building_id: tmp_building.id,

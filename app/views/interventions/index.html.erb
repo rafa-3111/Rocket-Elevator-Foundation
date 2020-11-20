@@ -1,49 +1,69 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Interventions</h1>
-
 <table>
   <thead>
     <tr>
       <th colspan="3"></th>
-      	<div class="row">
-											<div class="col-md-4">
-												<label for="contact:name">Full Name *</label>
-												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
-											</div>
-											<div class="col-md-4">
-												<label for="contact:name">Business Name *</label>
-												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
-											</div>
-
-
-											<div class="col-md-4">
-												<label for="contact:email">E-mail Address *</label>
-												<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
-											</div>
-											<div class="col-md-4">
-												<label for="contact:phone">Phone Number*</label>
-												<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
-											</div>
-									</div>
-									<div class="row">
-											<div class="col-md-8">
-												<label for="contact:subject">Project Name*</label>
-												<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
-											</div>
-
-											<div class="col-md-8">
-												<label for="contact:subject">Project Description*</label>
-												<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
-											</div>
-            <li class="dropdown nav-animate-fadeIn resp-active"><!-- SERVICES -->
-              <%= link_to 'SELECTOR', root_path(anchor: "intervention"), 'data-turbolinks': false %>
-              <ul class="dropdown-menu">
-                <li class="dropdown">
-                  <a href="/static_pages/intervention">Selector</a>
-                </li>
-              </ul>
-            </li>
+      	<section class="section">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="col col-12">
+            <div class="text-center">
+              <h2 class="text-blue fw-300">Intervention</h2>
+            </div>
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-signin" }) do |f| %>
+              <%= f.error_notification %>
+               <div class="field m-5">
+                <div class="control">
+                <%= label_tag(:id, "Customer:") %>
+                  <%=  collection_select :customer, :id, Customer.all, :id, :company_name, {:prompt=> true}, {:id=> 'customer_dropdown', :name=> 'customer_id', :required=> true}   %>
+                </div>
+              </div>
+              <div class="field m-5">
+                <div class="control">
+                <%= label_tag(:id, "Bulding:") %>
+                  <%= collection_select :building, :id, Building.all, :id, :customer_id, {:prompt=> true}, {:id=> 'building_dropdown', :name=> 'building_id', :required=> true}%>
+                </div>
+              </div>
+               <div class="field m-5">
+                <div class="control">
+                <%= label_tag(:id, "Battery:") %>
+                  <%= collection_select :battery, :id, Battery.all, :id, :building, {:prompt=> true}, {:id=> 'battery_dropdown', :name=> 'battery_id', :required=> true}%>
+                </div>
+              </div>
+              <div class="field m-5">
+                <div class="control">
+                <%= label_tag(:id, "Column:") %>
+                  <%= collection_select :column, :id, Column.all, :id, :updated_at, {:prompt=> true}, {:id=> 'column_dropdown', :name=> 'column_id', :required=> true}%>
+                </div>
+              </div>
+               <div class="field m-5">
+                <div class="control">
+                <%= label_tag(:id, "Elevator:") %>
+                  <%= collection_select :elevator, :id, Elevator.all, :id, :created_at, {:prompt=> true}, {:id=> 'elevator_dropdown', :name=> 'elevator_id', :required=> true}%>
+                </div>
+              </div>
+               <div class="field m-5">
+                <div class="control">
+                <%= label_tag(:id, "Employee:") %>
+                  <%= collection_select :employee, :id, Employee.all, :id, :created_at, {:prompt=> true}, {:id=> 'employee_dropdown', :name=> 'employee_id', :required=> true}%>
+                </div>
+              </div>
+              <div class="field m-5">
+                <div class="control">
+                <%= label_tag(:id, "Description:") %>
+                 <%= collection_select :intervention, :id, Intervention.all, :id, :intervention, {:prompt=> true}, {:id=> 'intervention_dropdown', :name=> 'intervention_id', :required=> true}%>
+                </div>
+              </div>
+              <div class="text-center mt-20">
+                <div class="col-12">
+                  <%= f.button :submit, "Submit Intervention", class:"btn btn-primary" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
     </tr>
   </thead>
 
@@ -59,7 +79,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Intervention', new_intervention_path %>
-
-

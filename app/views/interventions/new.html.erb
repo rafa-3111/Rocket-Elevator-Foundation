@@ -1,5 +1,35 @@
 <h1>New Intervention</h1>
 
+<script>
+  <script>
+  $(document).ready(function() {
+    $('#customer_select').change(function() {
+      $.ajax({
+        url: "<%= update_customer_path %>",
+        data: {
+          customer_id : $('#customer_select').val()
+        },
+        dataType: "script"
+      });
+    });
+    $('#building_select').change(function() {
+      $.ajax({
+        url: "<%= update_building_path %>",
+        data: {
+          building_id : $('#building_select').val()
+        },
+  $('#battery_select').change(function() {
+      $.ajax({
+        url: "<%= update_battery_path %>",
+        data: {
+          battery_id : $('#battery_select').val()
+        },
+        dataType: "script"
+      });
+    });
+  </script>
+</script>
+
 
 
 

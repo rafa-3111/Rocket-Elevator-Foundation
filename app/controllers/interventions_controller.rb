@@ -5,6 +5,7 @@ class InterventionsController < ApplicationController
   # GET /interventions.json
   def index
     @interventions = Intervention.all
+
   end
 
   # GET /interventions/1
@@ -15,6 +16,7 @@ class InterventionsController < ApplicationController
   # GET /interventions/new
   def new
     @intervention = Intervention.new
+    
   end
 
   # GET /interventions/1/edit
@@ -71,4 +73,4 @@ class InterventionsController < ApplicationController
     def intervention_params
       params.fetch(:intervention, {})
     end
-end
+  end
