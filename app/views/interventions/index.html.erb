@@ -52,7 +52,7 @@
               <div class="field m-5">
                 <div class="control">
                 <%= label_tag(:id, "Description:") %>
-                 <%= collection_select :intervention, :id, Intervention.all, :id, :intervention, {:prompt=> true}, {:id=> 'intervention_dropdown', :name=> 'intervention_id', :required=> true}%>
+                 <%= collection_select :intervention, :id, Intervention.all, :id, :customer, {:prompt=> true}, {:id=> 'intervention_dropdown', :name=> 'intervention_id', :required=> true}%>
                 </div>
               </div>
               <div class="text-center mt-20">
