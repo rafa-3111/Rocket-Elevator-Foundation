@@ -1,3 +1,21 @@
+
+      Consolidation
+We also use ruby ​​on rails to create the intervention file.
+https://www.tutorialspoint.com/ruby-on-rails/rails-scaffolding.htm
+For the form of this tutorial I used rails generate scaffold
+with it the controller, model, view file was created.
+And also with rake db: migrate RAILS_ENV
+makes you read the table in the case all the intervention
+https://kernelgarden.wordpress.com/2014/02/26/dynamic-select-boxes-in-rails-4/
+I used this tutorial to do the dropdow
+to select those required in the document provided by Codeboxx
+https://rocket1146.zendesk.com/
+por zendesk I made my registration and made all the connection with the database
+https://github.com/rafa-3111/Rocket_Elevators_API_Rest
+and then through the REST API I did all the code in C #
+and always using vs code!
+
+
 # Rocket Elevators API
 
 ## Week-8, Team Project Description
